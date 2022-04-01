@@ -9,7 +9,7 @@ export class PublicService {
 
   apiUrl:string = 'http://127.0.0.1:8000/api'
 
-  constructor(private http: HttpClient, private router:Router) { }
+  constructor(private http: HttpClient) { }
    httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

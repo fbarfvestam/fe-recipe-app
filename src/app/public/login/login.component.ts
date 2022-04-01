@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { PublicService } from '../public.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder, private publicService:PublicService) { }
+  constructor(private fb: FormBuilder, private publicService:PublicService, private router:Router) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit {
     this.publicService.login(data).subscribe((res:any)=>{
       localStorage.setItem('token', res.data.token)
       localStorage.setItem('id', res.data.id)
+      this.router.navigate(['/'])
     });
  }
 }
