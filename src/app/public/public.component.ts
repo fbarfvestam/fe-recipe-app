@@ -9,11 +9,13 @@ import { PublicService } from './public.service';
 })
 export class PublicComponent implements OnInit {
 
+  public loggedIn!: boolean;
+
   constructor(private router: Router,
               private publicService: PublicService) { }
 
   ngOnInit(): void {
-
+      this.loggedIn = localStorage.getItem('token') !== null;
     }
 
     signOut() {
