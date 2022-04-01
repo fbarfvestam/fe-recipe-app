@@ -1,17 +1,21 @@
-<h1 class="text-center">Please sign in</h1>
+<h1 class="text-center">Please register</h1>
 
 <form [formGroup]="form" class="form my-3" (submit)="submit()">
   <div class="form-group">
-    <input type="text" formControlName="username" class="form-control" placeholder="Username" />
+    <input type="text" formControlName="name" class="form-control" placeholder="Username" required />
   </div>
 
   <div class="form-group">
-    <input type="password" formControlName="password" class="form-control" placeholder="Password" />
+    <input type="text" formControlName="email" class="form-control" placeholder="Email" required />
   </div>
 
   <div class="form-group">
-    <input type="password" formControlName="password_confirmation" class="form-control" placeholder="Password Confirmation" />
+    <input type="password" formControlName="password" class="form-control" placeholder="Password" required/>
   </div>
 
-  <button class="btn btn-lg btn-primary btn-block mt-3">Login</button>
+  <div class="form-group">
+    <input type="password" formControlName="confirm_password" class="form-control" placeholder="Password Confirmation" required/>
+  </div>
+  <p>{{ errorMessage }}</p>
+  <button class="btn btn-lg btn-primary btn-block mt-3" [disabled]="!form.valid">Register</button>
 </form>
