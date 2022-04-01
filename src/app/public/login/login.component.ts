@@ -28,10 +28,10 @@ export class LoginComponent implements OnInit {
       email: signinData.email,
       password: signinData.password,
     }
-    this.publicService.login(data).subscribe((res:any)=>{
-      localStorage.setItem('token', res.data.token)
+    this.publicService.login(data).subscribe((res:any)=>{       
+       localStorage.setItem('token', res.data.token)
       localStorage.setItem('id', res.data.id)
-      this.router.navigate(['/'])
+      this.router.navigate(['/']) 
     });
  }
 }
