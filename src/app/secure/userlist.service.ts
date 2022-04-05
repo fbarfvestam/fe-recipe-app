@@ -20,4 +20,14 @@ export class UserlistService {
   {
     return this.http.post<Userlist>(`http://localhost:8000/api/create-list/1`, JSON.stringify(Userlist), this.httpOptions);
   }
+
+  showList():Observable<Userlist[]> 
+  {
+    return this.http.get<Userlist[]>(`http://localhost:8000/api/get-list/1`, this.httpOptions);
+  }
+
+  deleteList(id:number)
+  {
+    return this.http.delete<Userlist[]>(`http://localhost:8000/api/delete-list/${id}`, this.httpOptions);
+  }
 }

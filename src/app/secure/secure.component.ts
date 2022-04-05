@@ -19,7 +19,12 @@ export class SecureComponent implements OnInit {
     this.create=new FormGroup({
       title:new FormControl('', [Validators.required])
     });
-  }
+    this.Userlistservice.showList().subscribe((res:any)=>{
+      this.Userlist=res;
+      console.log(this.Userlist);
+      
+    })
+   }
 
   createList() {
     console.log(this.create.value);
@@ -27,6 +32,14 @@ export class SecureComponent implements OnInit {
       console.log('list created!');
       this.create.reset();
       
-    })
+    }) 
+  }
+
+  deleteList(id:number) {
+    this.Userlistservice.deleteList(id).subscribe((res:any)=>{
+      this.Userlist = this.Userlist.filter((item) => item.id !== id)
+      console.log('list deleted');
+      
+     })  
   }
 }
