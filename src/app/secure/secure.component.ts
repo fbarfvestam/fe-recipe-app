@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,10 +13,14 @@ import { UserlistService } from './userlist.service';
 export class SecureComponent implements OnInit {
   Userlist: Userlist[] = [];
   create!: FormGroup;
+  user:any;
 
-  constructor(private Userlistservice: UserlistService, private router:Router) {}
+  constructor(private Userlistservice: UserlistService, private router:Router, private http:HttpClient) {}
 
   ngOnInit(): void {
+    const headers = new HttpHeaders({
+      Authorization:`Bearer ${localStorage.getItem('token')}`
+    });
     this.create=new FormGroup({
       title:new FormControl('', [Validators.required])
     });
@@ -23,6 +28,11 @@ export class SecureComponent implements OnInit {
       this.Userlist=res;
       console.log(this.Userlist);
       
+    })
+    this.http.get(`http://localhost:8000/api/users/${localStorage.getItem('id')}`, {headers:headers}).subscribe((result)=>(this.user=result),(err)=>{
+      localStorage.removeItem('token');
+      localStorage.removeItem('id');
+      this.router.navigate(['/login']);
     })
    }
 
