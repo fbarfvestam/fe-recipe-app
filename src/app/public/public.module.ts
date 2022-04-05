@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
+import { RecipesComponent } from './recipes/recipes.component';
 
 
 
@@ -15,7 +16,8 @@ import { RegisterComponent } from './register/register.component';
     PublicComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    RecipesComponent
   ],
   imports: [
     CommonModule,

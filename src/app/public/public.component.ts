@@ -22,7 +22,8 @@ export class PublicComponent implements OnInit {
       this.publicService.signOut().subscribe((res:any)=>{
         localStorage.removeItem('token')
         localStorage.removeItem('id')
-        this.router.navigate(['/'])
+        this.router.navigate(['/login'])
+        window.location.reload();
     })
  }
 }
