@@ -17,11 +17,16 @@ export class SecureComponent implements OnInit {
 
   ngOnInit(): void {
     this.create=new FormGroup({
-      list_name:new FormControl('', [Validators.required])
+      title:new FormControl('', [Validators.required])
     });
   }
 
   createList() {
     console.log(this.create.value);
+    this.Userlistservice.createList(this.create.value).subscribe((res:any)=>{
+      console.log('list created!');
+      this.create.reset();
+      
+    })
   }
 }
