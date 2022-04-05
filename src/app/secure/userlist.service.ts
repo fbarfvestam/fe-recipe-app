@@ -18,12 +18,12 @@ export class UserlistService {
   constructor(private http:HttpClient) { }
   createList(Userlist:any):Observable<Userlist> 
   {
-    return this.http.post<Userlist>(`http://localhost:8000/api/create-list/1`, JSON.stringify(Userlist), this.httpOptions);
+    return this.http.post<Userlist>(`http://localhost:8000/api/create-list/${localStorage.getItem('id')}`, JSON.stringify(Userlist), this.httpOptions);
   }
 
   showList():Observable<Userlist[]> 
   {
-    return this.http.get<Userlist[]>(`http://localhost:8000/api/get-list/1`, this.httpOptions);
+    return this.http.get<Userlist[]>(`http://localhost:8000/api/get-list/${localStorage.getItem('id')}`, this.httpOptions);
   }
 
   deleteList(id:number)

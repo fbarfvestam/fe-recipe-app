@@ -41,7 +41,7 @@ export class SecureComponent implements OnInit {
     this.Userlistservice.createList(this.create.value).subscribe((res:any)=>{
       console.log('list created!');
       this.create.reset();
-      
+      window.location.reload();
     }) 
   }
 
