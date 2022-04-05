@@ -1,4 +1,14 @@
-<div class="jumbotron">
-    <h1>Welcome</h1>
-    <p class="lead">You are now at the HomeComponent</p>
-</div>
+<section class="card-group">
+    <div class="col-lg-3 mb-4 mr-3" *ngFor="let i of recipe">
+      <div class="card" style="width: 18rem">
+        <img src="{{ i.image }}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{ i.title }}</h5>
+          <p class="card-text">{{ i.diets }}</p>
+          <a class="btn btn-primary" [routerLink]="['recipe/', i.id]"
+            >To Recipe</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>

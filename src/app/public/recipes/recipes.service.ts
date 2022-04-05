@@ -18,8 +18,8 @@ export class RecipesService {
 
   constructor(private httpClient:HttpClient) { }
 
-  getRandomRecipe():Observable<object> 
+/*   getRandomRecipe():Observable<object> 
   {
     return this.httpClient.get<object>(`${this.apiUrl}random?apiKey=1aff96e4bf944c50acb3058215e79391&number=2`, this.httpOptions)
-  }
+  } */
 }

@@ -9,10 +9,11 @@ import { RecipesService } from './recipes.service';
 })
 export class RecipesComponent implements OnInit {
 
+  recipe:Recipe[]=[];
+
   constructor(private RecipeService:RecipesService) { }
 
   ngOnInit(): void {
-
   }
 
 }
