@@ -1,7 +1,7 @@
 <section
   class="d-flex justify-content-center align-items-center header-section mb-4"
 >
-  <form action="">
+  <form action="" [formGroup]="searchRecipe" (submit)="search()">
     <div class="text-center">
       <select formControlName="diet" class="mt-1 form-select form-select-sm">
         <option value="" disabled>Select a diet</option>
@@ -9,19 +9,17 @@
         <option value="vegan">Vegan</option>
         <option value="vegetarian">Vegetarian</option>
       </select>
-      <select
-        formControlName="mealtypes"
-        class="mt-1 form-select form-select-sm"
-      >
+      <select formControlName="type" class="mt-1 form-select form-select-sm">
         <option value="" disabled>Mealtypes</option>
-        <option value="">Main course</option>
-        <option value="">Breakfast</option>
-        <option value="">Dessert</option>
+        <option value="main+course">Main course</option>
+        <option value="breakfast">Breakfast</option>
+        <option value="dessert">Dessert</option>
       </select>
       <input
         type="text"
         class="form-control mt-2 mb-2"
         placeholder="Search recipes..."
+        formControlName="query"
       />
       <button class="btn-lg btn-primary">Search</button>
     </div>
@@ -29,135 +27,16 @@
 </section>
 <section class="container">
   <div class="row gy-4">
-    <div class="col-sm-3">
-      <div class="card h-100">
-        <img
-          src="https://riverhousecatering.com/wp-content/uploads/2017/10/img-food.jpg"
-          class="card-img-top"
-          alt="..."
-        />
+    <div class="col-sm-3" *ngFor="let r of recipe">
+      <div class="card h-100" (click)="getOneRecipe(r.id)">
+        <img src="{{ r.image }}" class="card-img-top" alt="..." />
         <div class="card-body">
-          <h5 class="card-title fw-bold">Card title</h5>
+          <h5 class="card-title fw-bold">{{ r.title }}</h5>
           <p class="card-text">
             Some quick example text to build make up the bulk of the card's
             content.
           </p>
         </div>
-        <a class="btn btn-primary">To Recipe</a>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="card h-100">
-        <img
-          src="https://riverhousecatering.com/wp-content/uploads/2017/10/img-food.jpg"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h5 class="card-title fw-bold">Card title</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content. Some more quick example text for the
-            card's content.
-          </p>
-        </div>
-        <a class="btn btn-primary">To Recipe</a>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="card h-100">
-        <img
-          src="https://riverhousecatering.com/wp-content/uploads/2017/10/img-food.jpg"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h5 class="card-title fw-bold">Card title</h5>
-          <p class="card-text">
-            Some quick example text to make up the bulk of the card's content.
-          </p>
-        </div>
-        <a class="btn btn-primary">To Recipe</a>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="card h-100">
-        <img
-          src="https://riverhousecatering.com/wp-content/uploads/2017/10/img-food.jpg"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h5 class="card-title fw-bold">Card title</h5>
-          <p class="card-text">
-            Some quick example text to make up the bulk of the card's content.
-          </p>
-        </div>
-        <a class="btn btn-primary">To Recipe</a>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="card h-100">
-        <img
-          src="https://riverhousecatering.com/wp-content/uploads/2017/10/img-food.jpg"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h5 class="card-title fw-bold">Card title</h5>
-          <p class="card-text">
-            Some quick example text to make up the bulk of the card's content.
-          </p>
-        </div>
-        <a class="btn btn-primary">To Recipe</a>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="card h-100">
-        <img
-          src="https://riverhousecatering.com/wp-content/uploads/2017/10/img-food.jpg"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h5 class="card-title fw-bold">Card title</h5>
-          <p class="card-text">
-            Some quick example text to make up the bulk of the card's content.
-          </p>
-        </div>
-        <a class="btn btn-primary">To Recipe</a>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="card h-100">
-        <img
-          src="https://riverhousecatering.com/wp-content/uploads/2017/10/img-food.jpg"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h5 class="card-title fw-bold">Card title</h5>
-          <p class="card-text">
-            Some quick example text to make up the bulk of the card's content.
-          </p>
-        </div>
-        <a class="btn btn-primary">To Recipe</a>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="card h-100">
-        <img
-          src="https://riverhousecatering.com/wp-content/uploads/2017/10/img-food.jpg"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h5 class="card-title fw-bold">Card title</h5>
-          <p class="card-text">
-            Some quick example text to make up the bulk of the card's content.
-          </p>
-        </div>
-        <a class="btn btn-primary">To Recipe</a>
       </div>
     </div>
   </div>
