@@ -1,0 +1,17 @@
+.header-section {
+    height: 50vh;
+    width: 100%;
+    background-image: url("https://www.gfar.net/sites/default/files/iStock_90982111_MEDIUM_opt_opt.jpg");
+    background-size: cover;
+}
+
+form {
+    width: 500px;
+}
+
+.card {
+    box-shadow: 0 0 5px 0 rgba(22, 22, 26, .25);
+}
+/* .card-section {
+    max-width: 998px;
+} */
