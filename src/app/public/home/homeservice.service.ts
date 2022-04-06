@@ -27,4 +27,10 @@ export class HomeserviceService {
       `${this.apiUrl}complexSearch?apiKey=${this.apiKey}&query=${data.query}&type=${data.type}&diet=${data.diet}`
     );
   }
+
+  getRecipeById(recipeid: number) {
+    return this.httpClient.get<any>(
+      `${this.apiUrl}${recipeid}/information?apiKey=${this.apiKey}`
+    );
+  }
 }

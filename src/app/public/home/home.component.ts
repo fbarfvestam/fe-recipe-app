@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Recipe } from '../recipes/recipe';
 import { HomeserviceService } from './homeservice.service';
 
@@ -15,14 +16,14 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private Homeservice: HomeserviceService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.Homeservice.getRandomRecipe().subscribe({
       next: (recipe) => {
         this.recipe = recipe;
-        console.log(this.recipe);
       },
     });
     this.searchRecipe = this.fb.group({
@@ -33,18 +34,16 @@ export class HomeComponent implements OnInit {
   }
   search() {
     const searchForm = this.searchRecipe.getRawValue();
-    console.log(searchForm);
     const data = {
       query: searchForm.query,
       type: searchForm.type,
       diet: searchForm.diet,
     };
     this.Homeservice.searchRecipe(data).subscribe((res: any) => {
-      console.log(res);
       this.recipe = Object(res).results;
     });
   }
   getOneRecipe(recipeid: number) {
-    console.log(recipeid);
+    this.router.navigate([`/recipe/${recipeid}`]);
   }
 }
