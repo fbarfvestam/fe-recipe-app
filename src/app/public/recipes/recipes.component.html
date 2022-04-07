@@ -1,1 +1,10 @@
-<p>recipes works!</p>
+<section class="container shadow-lg p-5 my-5 border rounded">
+  <h1 class="text-center">{{ recipe.title }}</h1>
+  <img
+    src="{{ recipe.image }}"
+    class="img-fluid img-thumbnail mx-auto d-block m-5 rounded"
+    alt=""
+  />
+  <p [innerHTML]="recipe.summary"></p>
+  <p [innerHTML]="recipe.instructions"></p>
+</section>
