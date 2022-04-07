@@ -5,6 +5,7 @@ import { LoginComponent } from './public/login/login.component';
 import { PublicComponent } from './public/public.component';
 import { RecipesComponent } from './public/recipes/recipes.component';
 import { RegisterComponent } from './public/register/register.component';
+import { RecipelistComponent } from './secure/recipelist/recipelist.component';
 import { SecureComponent } from './secure/secure.component';
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
       { path: 'register', component: RegisterComponent },
       { path: 'secure', component: SecureComponent },
       { path: 'recipe/:id', component: RecipesComponent },
+      { path: 'secure/:listname/:recipelist', component: RecipelistComponent },
     ],
   },
 

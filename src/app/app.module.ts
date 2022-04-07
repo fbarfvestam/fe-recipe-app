@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 import { PublicComponent } from './public/public.component';
 import { PublicModule } from './public/public.module';
 import { SecureComponent } from './secure/secure.component';
+import { RecipelistComponent } from './secure/recipelist/recipelist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SecureComponent
+    SecureComponent,
+    RecipelistComponent
   ],
   imports: [
     BrowserModule,

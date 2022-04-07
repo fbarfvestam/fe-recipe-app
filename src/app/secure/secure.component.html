@@ -1,32 +1,32 @@
 <h1>Hello User, this is your dashboard</h1>
 
 <form class="row my-3 gap-2" [formGroup]="create" (ngSubmit)="createList()">
-    <div class="col-lg-10 col-sm-3">
-      <input
-        formControlName="title"
-        class="form-control"
-        type="text"
-        placeholder="List Name"
-      />
-    </div>
-    <div class="col-auto">
-      <input
-        class="btn btn-primary"
-        type="submit"
-        value="Create"
-        [disabled]="!create.valid"
-      />
-    </div>
-  </form>
+  <div class="col-lg-10 col-sm-3">
+    <input
+      formControlName="title"
+      class="form-control"
+      type="text"
+      placeholder="List Name"
+    />
+  </div>
+  <div class="col-auto">
+    <input
+      class="btn btn-primary"
+      type="submit"
+      value="Create"
+      [disabled]="!create.valid"
+    />
+  </div>
+</form>
 
-  <div class="card w-90 mb-2" *ngFor="let r of Userlist">
-    <div class="card-body">
-      <h3 class="card-title text-center mb-5">{{ r.title }}</h3>
-      <div class="d-flex justify-content-between">
-        <a class="btn btn-danger" (click)="deleteList(r.id)">Delete</a>
-<!--         <a class="btn btn-primary" (click)="GetRecipies(r.id)">
-          See Recipes
-        </a> -->
-      </div>
+<div class="card w-90 mb-2" *ngFor="let r of Userlist">
+  <div class="card-body">
+    <h3 class="card-title text-center mb-5">{{ r.title }}</h3>
+    <div class="d-flex justify-content-between">
+      <a class="btn btn-danger" (click)="deleteList(r.id)">Delete</a>
+      <a class="btn btn-primary" [routerLink]="[r.title, r.id]">
+        See Recipes
+      </a>
     </div>
   </div>
+</div>
