@@ -27,4 +27,5 @@ export class RecipesComponent implements OnInit {
       console.log(this.recipe.id);
     });
   }
+  addRecipe() {}
 }

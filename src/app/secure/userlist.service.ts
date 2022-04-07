@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Userlist } from './userlist';
 
 @Injectable({
@@ -38,9 +38,8 @@ export class UserlistService {
   }
 
   getListRecipes(id: number) {
-    return this.http.get<Userlist[]>(
-      `http://localhost:8000/api/get-recipe/${id}`,
-      this.httpOptions
-    );
+    return this.http
+      .get<any>(`http://localhost:8000/api/get-recipe/${id}`, this.httpOptions)
+      .pipe(map((res) => res.message));
   }
 }

@@ -1,4 +1,4 @@
-<section class="container shadow-lg p-5 my-5 border rounded">
+<section class="container shadow-lg p-5 my-5 border rounded" *ngIf="recipe">
   <h1 class="text-center">{{ recipe.title }}</h1>
   <img
     src="{{ recipe.image }}"
@@ -7,4 +7,27 @@
   />
   <p [innerHTML]="recipe.summary"></p>
   <p [innerHTML]="recipe.instructions"></p>
+
+  <section class="d-flex justify-content-center gap-3 my-5">
+    <button
+      class="btn btn-success dropdown-toggle"
+      type="button"
+      id="dropdownMenuButton1"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Add to recipelist
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li class="dropdown-item"></li>
+    </ul>
+  </section>
 </section>
+
+<!-- <section class="d-flex justify-content-center gap-3 my-5" *ngIf="loggedIn">
+ -->
+<!-- 
+    *ngFor="let list of userlists"
+    (click)="addRecipe(list.id, recipe.id, recipe.title, recipe.image)" -->
+
+<!--     {{ list.list_name }} -->
