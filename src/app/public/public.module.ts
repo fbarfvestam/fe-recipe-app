@@ -8,9 +8,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { RecipesComponent } from './recipes/recipes.component';
-import { RecipeComponent } from './recipe/recipe.component';
-
-
 
 @NgModule({
   declarations: [
@@ -19,7 +16,6 @@ import { RecipeComponent } from './recipe/recipe.component';
     LoginComponent,
     RegisterComponent,
     RecipesComponent,
-    RecipeComponent
   ],
   imports: [
     CommonModule,
@@ -27,6 +23,6 @@ import { RecipeComponent } from './recipe/recipe.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-  ]
+  ],
 })
-export class PublicModule { }
+export class PublicModule {}

@@ -42,4 +42,12 @@ export class UserlistService {
       .get<any>(`http://localhost:8000/api/get-recipe/${id}`, this.httpOptions)
       .pipe(map((res) => res.message));
   }
+
+  addRecipeToList(data: any) {
+    return this.http.post<Userlist>(
+      `http://localhost:8000/api/recipe-list/${data.userlistid}`,
+      JSON.stringify(data),
+      this.httpOptions
+    );
+  }
 }

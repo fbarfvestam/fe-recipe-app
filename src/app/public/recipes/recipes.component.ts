@@ -43,5 +43,8 @@ export class RecipesComponent implements OnInit {
       userlistid: userlistid,
     };
     console.log(data);
+    this.Userlistservice.addRecipeToList(data).subscribe((res: any) => {
+      console.log(res);
+    });
   }
 }
