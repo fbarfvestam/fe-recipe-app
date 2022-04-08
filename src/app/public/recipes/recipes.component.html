@@ -8,7 +8,7 @@
   <p [innerHTML]="recipe.summary"></p>
   <p [innerHTML]="recipe.instructions"></p>
 
-  <section class="d-flex justify-content-center gap-3 my-5">
+  <section class="d-flex justify-content-center gap-3 my-5" *ngIf="loggedIn">
     <button
       class="btn btn-success dropdown-toggle"
       type="button"
@@ -19,7 +19,13 @@
       Add to recipelist
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li class="dropdown-item"></li>
+      <li
+        class="dropdown-item"
+        *ngFor="let list of Userlist"
+        (click)="addRecipe(recipe.title, recipe.id, list.id)"
+      >
+        {{ list.title }}
+      </li>
     </ul>
   </section>
 </section>

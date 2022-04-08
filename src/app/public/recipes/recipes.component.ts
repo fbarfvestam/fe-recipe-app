@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Userlist } from 'src/app/secure/userlist';
+import { UserlistService } from 'src/app/secure/userlist.service';
 import { HomeserviceService } from '../home/homeservice.service';
 import { Recipe } from './recipe';
 import { RecipesService } from './recipes.service';
@@ -11,12 +13,14 @@ import { RecipesService } from './recipes.service';
 })
 export class RecipesComponent implements OnInit {
   recipe!: Recipe;
-
+  public loggedIn!: boolean;
   recipeid!: number;
+  Userlist: Userlist[] = [];
 
   constructor(
     private route: ActivatedRoute,
-    private homeService: HomeserviceService
+    private homeService: HomeserviceService,
+    private Userlistservice: UserlistService
   ) {}
 
   ngOnInit(): void {
@@ -26,6 +30,18 @@ export class RecipesComponent implements OnInit {
       this.recipe = res;
       console.log(this.recipe.id);
     });
+    this.loggedIn = localStorage.getItem('token') !== null;
+    this.Userlistservice.showList().subscribe((res: any) => {
+      this.Userlist = res;
+      console.log(this.Userlist);
+    });
   }
-  addRecipe() {}
+  addRecipe(recipe: string, recipeid: number, userlistid: number) {
+    const data = {
+      recipe: recipe,
+      recipe_id: recipeid,
+      userlistid: userlistid,
+    };
+    console.log(data);
+  }
 }
