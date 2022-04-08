@@ -29,4 +29,10 @@ export class RecipelistComponent implements OnInit {
         console.log(this.listRecipes);
       });
   }
+  deleteFromList(id: number) {
+    this.userListService.deleteRecipeFromList(id).subscribe((res) => {
+      this.listRecipes = this.listRecipes.filter((item) => item.id !== id);
+      console.log('recipe deleted');
+    });
+  }
 }

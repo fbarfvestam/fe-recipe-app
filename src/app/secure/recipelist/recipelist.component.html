@@ -1,6 +1,16 @@
+<span><a href="" [routerLink]="['/secure/']">Back to lists</a></span>
 <h1>{{ recipeListTitle }}</h1>
-<ul>
+<section *ngFor="let i of listRecipes">
+  <p>{{ i.recipe }}</p>
+  <button class="btn btn-danger" (click)="deleteFromList(i.id)">
+    Delete recipe
+  </button>
+  <a class="btn btn-success" [routerLink]="['/recipe/', i.recipe_id]"
+    >Go to recipe</a
+  >
+</section>
+<!-- <ul>
   <li *ngFor="let i of listRecipes">
     {{ i.recipe }}
   </li>
-</ul>
+</ul> -->

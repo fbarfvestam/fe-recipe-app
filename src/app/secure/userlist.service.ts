@@ -50,4 +50,10 @@ export class UserlistService {
       this.httpOptions
     );
   }
+  deleteRecipeFromList(id: number) {
+    return this.http.delete<Userlist>(
+      `http://localhost:8000/api/delete-recipe/${id}`,
+      this.httpOptions
+    );
+  }
 }
