@@ -26,7 +26,7 @@
           <a class="nav-link" *ngIf="!loggedIn" routerLink="/login">Login</a>
         </li>
         <li>
-          <a class="nav-link" routerLink="/secure">My Lists</a>
+          <a class="nav-link" *ngIf="loggedIn" routerLink="/secure">My Lists</a>
         </li>
         <li>
           <a
