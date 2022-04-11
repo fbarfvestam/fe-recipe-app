@@ -18,13 +18,15 @@
           <a class="nav-link active" routerLink="/">Home</a>
         </li>
         <li>
-          <a routerLink="/register" class="nav-link">Register</a>
+          <a routerLink="/register" *ngIf="!loggedIn" class="nav-link"
+            >Register</a
+          >
         </li>
         <li>
           <a class="nav-link" *ngIf="!loggedIn" routerLink="/login">Login</a>
         </li>
         <li>
-          <a class="nav-link" routerLink="/secure">Dashboard</a>
+          <a class="nav-link" routerLink="/secure">My Lists</a>
         </li>
         <li>
           <a
