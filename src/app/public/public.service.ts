@@ -12,13 +12,13 @@ export class PublicService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
     }),
   };
   login(formData: object) {
     return this.http.post(`${this.apiUrl}/login`, formData);
   }
   signOut() {
-    return this.http.post(`${this.apiUrl}/logout`, this.httpOptions);
+    return this.http.post(`${this.apiUrl}/logout`, null, this.httpOptions);
   }
 }

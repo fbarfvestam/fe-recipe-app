@@ -18,7 +18,7 @@ export class HomeserviceService {
 
   getRandomRecipe(): Observable<Recipe[]> {
     return this.httpClient
-      .get<any>(`${this.apiUrl}random?apiKey=${this.apiKey}&number=2`)
+      .get<any>(`${this.apiUrl}random?apiKey=${this.apiKey}&number=8`)
       .pipe(map((result) => result.recipes));
   }
 
