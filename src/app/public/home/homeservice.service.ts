@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { environment } from '../../../environments/environment.prod';
 import { Recipe } from '../recipes/recipe';
 
 @Injectable({
@@ -8,13 +9,13 @@ import { Recipe } from '../recipes/recipe';
 })
 export class HomeserviceService {
   private apiUrl = `https://api.spoonacular.com/recipes/`;
-  private apiKey = `1aff96e4bf944c50acb3058215e79391`;
+  private apiKey!: string;
 
   recipes: Recipe[] = [];
 
-  /*   random: string = `${this.apiUrl}complexSearch?apiKey=${}&query=${}&type=${}&diet=${}` */
-
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {
+    this.apiKey = environment.API_KEY;
+  }
 
   getRandomRecipe(): Observable<Recipe[]> {
     return this.httpClient

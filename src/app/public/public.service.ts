@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class PublicService {
-  apiUrl: string = 'http://127.0.0.1:8000/api';
+  apiUrl: string = 'https://recipeappfb.herokuapp.com/api';
 
   constructor(private http: HttpClient, private router: Router) {}
   httpOptions = {
